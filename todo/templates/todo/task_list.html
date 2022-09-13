@@ -1,12 +1,34 @@
-<h1> TOdo</h1>
 
+
+
+
+
+
+
+<!-- if user is logged in -->
+{% if request.user.is_authenticated %}
+    <!-- To display the current logged in user -->
+    <p>{{request.user}}</p> 
+    <a href="">Logout</a>
+<!-- if user is not logged in -->
+{% else %}
+    <a href="">Login</a>
+{%endif%}
+<hr>
+<h1> TOdo</h1>
+<a href="{% url 'create-task' %}">Add Item</a>
 <table>
     <tr>
         <th>Items</th>
+        <th></th>
+        <th></th>
     </tr>
     {% for c in tasks %}
     <tr>
         <td>{{c.title}}</td>
+        <td><a href="{% url 'task' c.id %}">View Task</a></td>
+        <td><a href="{% url 'update-task' c.id %}">Update</a></td>
+        <td><a href="{% url 'delete-task' c.id %}">Delete</a></td>
     </tr>
     {% empty %}
     <h4>No items found</h4>

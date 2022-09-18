@@ -9,13 +9,13 @@
 {% if request.user.is_authenticated %}
     <!-- To display the current logged in user -->
     <p>{{request.user}}</p> 
-    <a href="">Logout</a>
+    <a href="{% url 'logout' %}">Logout</a>
 <!-- if user is not logged in -->
 {% else %}
-    <a href="">Login</a>
+    <a href="{% url 'login' %}">Login</a>
 {%endif%}
 <hr>
-<h1> TOdo</h1>
+<h1> TOdo{{color}}</h1>
 <a href="{% url 'create-task' %}">Add Item</a>
 <table>
     <tr>

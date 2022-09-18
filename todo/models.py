@@ -10,7 +10,7 @@ class Task(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return self.title
+        return self.title 
     
     class Meta:
         ordering = ['complete'] #orders by the complete status of the added item
